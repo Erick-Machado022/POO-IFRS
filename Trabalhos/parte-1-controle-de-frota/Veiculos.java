@@ -70,6 +70,18 @@ public class Veiculos {
         }
     }
 
+    //precisa de manutenção
+
+    public boolean pecisaManutencao(){
+        double kmRodadoDaUltimaPreventiva = quilometragemAtual - quilometragemUltimaPreventiva;
+
+        if (kmRodadoDaUltimaPreventiva >= intervaloManutencaoKm) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 
     
 
