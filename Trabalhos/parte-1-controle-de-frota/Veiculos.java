@@ -30,4 +30,29 @@ public class Veiculos {
             this.quilometragemAtual = novaQuilometragem;
         }
 
+    //getters
+
+    public String getPlaca(){
+            return placa;
+    }
+
+    public String getModelo(){
+        return modelo;
+    }
+
+    public double getQuilometragemAtual(){
+        return quilometragemAtual;
+    }
+
+    public double getQuilomretragemUltimaPreventiva(){
+        return quilometragemUltimaPreventiva;
+    }
+
+    public double getIntervaloManutencaoKm(){
+        return intervaloManutencaoKm;
+    }
+
+
     
+
+}
