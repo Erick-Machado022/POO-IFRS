@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Veiculos {
     
     private String placa;
@@ -10,12 +13,16 @@ public class Veiculos {
 
     private double intervaloManutencaoKm;
 
+    private ArrayList<Manutencao> manutencoes;
+
     public Veiculos(String placa, String modelo,double quilometragemAtual, double intervaloManutencaoKm){
         this.placa = placa;
         this.modelo = modelo;
         this.quilometragemAtual = quilometragemAtual;
         this.quilometragemUltimaPreventiva = quilometragemAtual;
         this.intervaloManutencaoKm = intervaloManutencaoKm;
+
+        this.manutencoes = manutencoes = new ArrayList<>();
 
         
         
@@ -50,6 +57,17 @@ public class Veiculos {
 
     public double getIntervaloManutencaoKm(){
         return intervaloManutencaoKm;
+    }
+
+
+    //registro de manutenção
+
+    public void registrarManutencao(Manutencao manutencao){
+        manutencoes.add(manutencao);
+
+        if (manutencao.getTipo() == TipoManutencao.PREVENTIVA) {
+            quilometragemUltimaPreventiva = quilometragemAtual;
+        }
     }
 
 
