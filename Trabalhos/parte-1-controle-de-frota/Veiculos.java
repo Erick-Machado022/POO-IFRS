@@ -10,7 +10,7 @@ public class Veiculos {
 
     private double intervaloManutencaoKm;
 
-    public veiculo(String placa, String modelo,double quilometragemAtual, double intervaloManutencaoKm){
+    public Veiculos(String placa, String modelo,double quilometragemAtual, double intervaloManutencaoKm){
         this.placa = placa;
         this.modelo = modelo;
         this.quilometragemAtual = quilometragemAtual;
@@ -18,6 +18,16 @@ public class Veiculos {
         this.intervaloManutencaoKm = intervaloManutencaoKm;
 
         
+        
     }
 
-}
+    public void atualizarQuilometragem(double novaQuilometragem){
+
+        if (novaQuilometragem < quilometragemAtual) {
+            throw new IllegalArgumentException("A quilometragem não pode retroceder");
+        }
+
+            this.quilometragemAtual = novaQuilometragem;
+        }
+
+    
