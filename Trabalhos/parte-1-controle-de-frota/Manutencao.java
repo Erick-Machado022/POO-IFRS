@@ -36,6 +36,7 @@ public class Manutencao {
             throw new IllegalArgumentException("O valor do custo nao pode ser menor do que zero");
         }
         this.custo = custo;
+
         this.quilometragem = quilometragem;
     }
 
@@ -47,7 +48,7 @@ public class Manutencao {
         return tipo;
     }
 
-    public double custo(){
+    public double getCusto(){
         return custo;
     }
 

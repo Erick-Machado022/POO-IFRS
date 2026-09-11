@@ -82,6 +82,20 @@ public class Veiculos {
         }
     }
 
+    //custos
+
+    public double totaCustoManutencao(){
+        double total = 0;
+
+        for(Manutencao manutencao : manutencoes){
+            total += manutencao.getCusto();
+        }
+
+        return total;
+
+
+    }
+
 
     
 
