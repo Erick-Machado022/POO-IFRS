@@ -13,7 +13,7 @@ public class Veiculos {
 
     private double intervaloManutencaoKm;
 
-    private ArrayList<Manutencao> manutencoes;
+    private ArrayList<Manutencao> listaManutencoes;
 
     public Veiculos(String placa, String modelo,double quilometragemAtual, double intervaloManutencaoKm){
         this.placa = placa;
@@ -22,7 +22,7 @@ public class Veiculos {
         this.quilometragemUltimaPreventiva = quilometragemAtual;
         this.intervaloManutencaoKm = intervaloManutencaoKm;
 
-        this.manutencoes = manutencoes = new ArrayList<>();
+        this.listaManutencoes = new ArrayList<>();
 
         
         
@@ -59,20 +59,27 @@ public class Veiculos {
         return intervaloManutencaoKm;
     }
 
+    public List<Manutencao> getManutencoes(){
+        return List.copyOf(listaManutencoes);
+    }
+
 
     //registro de manutenção
 
-    public void registrarManutencao(Manutencao manutencao){
-        manutencoes.add(manutencao);
+    public void registrarManutencao(String data, TipoManutencao tipo, double custo){
 
-        if (manutencao.getTipo() == TipoManutencao.PREVENTIVA) {
+        Manutencao novaManutencao = new Manutencao(data,tipo,custo, quilometragemAtual);
+
+        listaManutencoes.add(novaManutencao);
+
+        if (tipo == TipoManutencao.PREVENTIVA) {
             quilometragemUltimaPreventiva = quilometragemAtual;
         }
     }
 
     //precisa de manutenção
 
-    public boolean pecisaManutencao(){
+    public boolean precisaManutencao(){
         double kmRodadoDaUltimaPreventiva = quilometragemAtual - quilometragemUltimaPreventiva;
 
         if (kmRodadoDaUltimaPreventiva >= intervaloManutencaoKm) {
@@ -84,16 +91,15 @@ public class Veiculos {
 
     //custos
 
-    public double totaCustoManutencao(){
+    
+    public double calcularCustoTotalManutencao(){
         double total = 0;
 
-        for(Manutencao manutencao : manutencoes){
-            total += manutencao.getCusto();
+        for(Manutencao manutencoes : listaManutencoes){
+            total+= manutencoes.custo();
         }
 
         return total;
-
-
     }
 
 
