@@ -1,4 +1,5 @@
 package aplication;
+import entities.*;
 
 import java.util.Scanner;
 
@@ -6,27 +7,30 @@ public class program {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
             
-        double xA, xB, xC, yA, yB, yC;
+        Triangle x, y;
+
+        x = new Triangle();
+        y = new Triangle();
 
         System.out.println("Enter the measures of triangle X: ");
 
-        xA = in.nextDouble();
-        xB = in.nextDouble();
-        xC = in.nextDouble();
+        x.a = in.nextDouble();
+        x.b= in.nextDouble();
+        x.c = in.nextDouble();
 
 
         System.out.println("Enter the measures of triangle Y: ");
 
-        yA = in.nextDouble();
-        yB = in.nextDouble();
-        yC = in.nextDouble();
+        y.a = in.nextDouble();
+        y.b = in.nextDouble();
+        y.c = in.nextDouble();
 
 
-        double p = (xA + xB + xC) / 2.0;
-        double areaX = Math.sqrt(p * (p - xA) * (p - xB) * (p - xC));
+        double p = (x.a + x.b + x.c) / 2.0;
+        double areaX = Math.sqrt(p * (p - x.a) * (p - x.b) * (p - x.c));
 
-        double p2 = (yA + yB + yC) / 2.0;
-        double areaY = Math.sqrt(p2 * (p2 - yA) * (p2 - yB) * (p2 - yC));
+        p = (y.a + y.b + y.c) / 2.0;
+        double areaY = Math.sqrt(p * (p - y.a) * (p - y.b) * (p - y.c));
 
         System.out.printf("Triangle X area: %.4fn", areaX);
         System.err.println();
