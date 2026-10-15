@@ -1,3 +1,5 @@
+package ex2.src;
+
 import java.util.Scanner;
 
 import entities.Product;

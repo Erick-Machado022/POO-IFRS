@@ -1,4 +1,4 @@
-package entities;
+package ex2.src.entities;
 
 public class Product {
     public String name;
